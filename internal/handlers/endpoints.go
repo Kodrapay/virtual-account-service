@@ -24,6 +24,9 @@ func (h *VirtualAccountHandler) Create(c *fiber.Ctx) error {
 }
 
 func (h *VirtualAccountHandler) Get(c *fiber.Ctx) error {
-	id := c.Params("id")
+	id, err := c.ParamsInt("id") // Use c.ParamsInt
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, "Invalid virtual account ID")
+	}
 	return c.JSON(h.svc.Get(c.Context(), id))
 }

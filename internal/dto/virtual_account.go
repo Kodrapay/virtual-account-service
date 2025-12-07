@@ -1,13 +1,13 @@
 package dto
 
 type VirtualAccountRequest struct {
-	MerchantID string `json:"merchant_id"`
+	MerchantID int `json:"merchant_id"`
 	BankCode   string `json:"bank_code"`
 	Currency   string `json:"currency"`
 }
 
 type VirtualAccountResponse struct {
-	ID            string `json:"id"`
+	ID            int `json:"id"`
 	AccountName   string `json:"account_name"`
 	AccountNumber string `json:"account_number"`
 	BankCode      string `json:"bank_code"`
